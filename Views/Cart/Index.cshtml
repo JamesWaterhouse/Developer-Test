@@ -1,0 +1,76 @@
+﻿@{
+	Layout = null;
+}
+
+@using ShoppingCart.Models;
+
+@{
+	Cart cart = (Cart)Session["cart"];
+	var subtotal = cart.Items.Sum(item => item.Product.Price * item.Quantity);
+	var total = Math.Round(subtotal * cart.DiscountMultiplier, 2);
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+	<meta name="viewport" content="width=device-width" />
+	<title>Cart</title>
+</head>
+<body>
+
+	<h3>Your Shopping Cart</h3>
+	<table cellpadding="2" cellspacing="2" border="1">
+		<tr>
+			<th>Option</th>
+
+			<th>Name</th>
+			<th>Price</th>
+			<th>Quantity</th>
+			<th>Item Total</th>
+		</tr>
+		@foreach (Item item in ((Cart)Session["cart"]).Items)
+		{
+			<tr>
+				<td><a href="@Url.Action("Remove", "Cart", new { id = item.Product.Id })">Remove</a></td>
+
+				<td>@item.Product.Name</td>
+				<td>@item.Product.Price</td>
+				<td>@item.Quantity</td>
+				<td>£@(item.Product.Price * item.Quantity)</td>
+			</tr>
+		}
+
+		<tr>
+			<td align="right" colspan="4">Subtotal</td>
+			<td>
+				£@subtotal
+			</td>
+		</tr>
+
+		<tr>
+			<td align="right" colspan="4">Discount</td>
+			<td>
+				@(cart.Discount)%
+			</td>
+		</tr>
+
+		<tr>
+			<td align="right" colspan="4">Total</td>
+			<td>
+				£@total
+			</td>
+		</tr>
+
+	</table>
+	<br>
+	@using (Html.BeginForm("AddDiscountCode", "Cart", FormMethod.Post))
+	{
+		<input type="text" placeholder="Add Discount Code" name="code" />
+		<button type="submit">Add</button>
+	}
+
+	<a href="@Url.Action("Index", "Home")">Continue Shopping</a>
+
+</body>
+</html>
