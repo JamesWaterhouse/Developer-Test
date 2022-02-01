@@ -1,41 +1,12 @@
 # 288 CST Developer Test
 Technical test for prospective developers.
 
-## Overview
-We are currently working with cloud based solutions and use a variety of technologies. Most of the codebase is written in C# with some PHP.  
+I have created a basic ASP.net web application of a shopping cart.
 
-## Getting Started
+I found the task difficult, for several reasons. It is clear to me that I am capable and efficient at working within a project that I know well, but to start a project (even one as simple as this) from scratch is far outside my comfort zone. I used a template and followed a guide, but do not feel that this is a good example of my code.
 
-Fork this git repository and create a C# application to implement the task below. The application could be a desktop app, a website, a console application, etc..
+The app has the basic ability to add to a cart from a choice of 3 products, varying quantities, and to add a discount to the whole cart.
 
-The task should not take too long to complete, perhaps a few hours, but you can spend as much time as you like. Once you are happy you have met the requirements please include a readme about your approach, what changes and/or refactoring you would do given more time, etc. and send us a link to your repository so we can review the code.
+Unfortunately unit testing is not something that I use in my current job. I tried to test the controller methods, but stumbled when trying to mock the session. I have therefore unfortunately been unable to include any tests.
 
-## The Task
-
-As we are an e-commerce shop, it is fitting to build a small shopping cart solution with the following features:
-
-```
-As a User
-I Want to be able to add a single product to a basket
-```
-
-```
-As a User
-I want to be able to add multiple products to a basket
-```
-
-```
-As a User
-I want to be able to see the total cost of my basket
-```
-
-```
-As a User
-I want to be able apply a discount code and see the price before and after the discount
-```
-
-You must demonstrate:
- - The ability to write good Unit/Integration tests
- - Show knowledge of good practices e.g. Design Patterns, SOLID Principles, etc..
-
-
+What I lack in current knowledge and ability, I make up for in enthusiasm to learn. I hope this was clear from the first interview.
